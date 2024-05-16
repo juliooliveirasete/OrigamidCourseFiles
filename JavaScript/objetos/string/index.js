@@ -1,40 +1,57 @@
-// Crie uma função construtora de Pessoas
-// Deve conter nome, sobrenome e idade
-// Crie um método no protótipo que retorne
-// o nome completo da pessoa
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
 
-function Pessoa(nome, sobrenome, idade) {
-    this.nome = nome;
-    this.sobrenome = sobrenome;
-    this.idade = idade;
-}
+const transacoes = [
+    {
+        descricao: 'Taxa do Pão',
+        valor: 'R$ 39',
+    },
+    {
+        descricao: 'Taxa do Mercado',
+        valor: 'R$ 129',
+    },
+    {
+        descricao: 'Recebimento de Cliente',
+        valor: 'R$ 99',
+    },
+    {
+        descricao: 'Taxa do Banco',
+        valor: 'R$ 129',
+    },
+    {
+        descricao: 'Recebimento de Cliente',
+        valor: 'R$ 49',
+    },
+];
 
-Pessoa.prototype.nomeCompleto = function() {
-    return this.nome + ' ' + this.sobrenome
-}
+let soma = 0;
 
-const alex = new Pessoa('Alex', 'Silva', 20)
+transacoes.forEach(elemento => {
+    soma = soma + parseInt(elemento.valor.replace(/[R$ ]+/g, ''))
+});
 
-console.log(alex.nomeCompleto())
+console.log(`R$ ${soma} foi o valor total de taxas e valores de recebimento.`)
 
-// Liste os métodos acessados por 
-// dados criados com NodeList,
-// HTMLCollection, Document
+// Retorne uma array com a lista abaixo
+const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
 
-Object.getOwnPropertyNames(NodeList.prototype)
-Object.getOwnPropertyNames(HTMLCollection.prototype)
-Object.getOwnPropertyNames(Document.prototype)
+let arrayTransportes = transportes.split(';');
 
-// Liste os construtores dos dados abaixo
-const li = document.querySelector('li');
+console.log(arrayTransportes)
 
-li; // HTMLLIElement
-li.click; // FUNCTION
-li.innerText; // STRING
-li.value; // NUMBER
-li.hidden; // BOOLEAN
-li.offsetLeft; // NUMBER
-li.click(); // UNDEFINED
+// Substitua todos os span's por a's
+let html = `<ul>
+                  <li><span>Sobre</span></li>
+                  <li><span>Produtos</span></li>
+                  <li><span>Contato</span></li>
+                </ul>`;
 
-// Qual o construtor do dado abaixo:
-li.hidden.constructor.name; // STRING
+html = html.split('span').join('a');
+
+// Retorne o último caracter da frase
+const frase = 'Melhor do ano!';
+
+console.log(frase[frase.length - 1])
+
+// Retorne o total de taxas
+// const transacoes = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
